@@ -1,8 +1,9 @@
 from math import *
+import matplotlib.pyplot as plt
 
 p = []
 center = [[0.0,0.0],[0.0,0.0]]
-file = open("data/tmp")
+file = open("data/out1")
 line = file.readlines()
 
 #read data
@@ -49,4 +50,27 @@ for j in range(0,100):
         else:
             i.append(2)
     center = [[0.0,0.0],[0.0,0.0]]
+
+x1 = []
+y1 = []
+x2 = []
+y2 = []
+
+for i in p:
+    if i[2] == 1:
+        x1.append(i[0])
+        y1.append(i[1])
+    else:
+        x2.append(i[0])
+        y2.append(i[1])
+
+fig=plt.figure()
+subplot = fig.add_subplot(1,1,1)
+subplot.scatter(x1,y1,marker='x',color="red")
+subplot.scatter(x2,y2,marker='o',color="blue")
+subplot.set_xlim(0,65535)
+subplot.set_ylim(0,65535)
+fig.show()
+raw_input()
+
 
