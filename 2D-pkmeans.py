@@ -132,17 +132,15 @@ def export_data(packet,output):
 
     file.close()
 
+#extract packet data
 f_name = "data/" + raw_input("enter pcap file name:")
 output_name = "data/" + raw_input("enter output file name:")
 pcap = rdpcap(f_name)
 export_dport(pcap,output_name)
 print "export complete!"
-    
 
 
-
-
-
+#start k-means clustering
 p = []
 center = [[0.0,0.0],[0.0,0.0]]
 file = open(output_name)
